@@ -1,0 +1,97 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='WolframDesktop 11.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       161,          7]
+NotebookDataLength[      2751,         87]
+NotebookOptionsPosition[      2458,         74]
+NotebookOutlinePosition[      2801,         89]
+CellTagsIndexPosition[      2758,         86]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"trainingSetInput", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"0", ",", "1", ",", "2"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "0", ",", "2"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", "1", ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", "0", ",", "1"}], "}"}]}], "}"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"trainingSetOutput", "=", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "0", ",", "1", ",", "0"}], "}"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"n", "=", 
+   RowBox[{"Length", "@", "trainingSetInput"}]}], ";", 
+  RowBox[{"(*", 
+   RowBox[{
+   "to", " ", "force", " ", "a", " ", "full", " ", "batch", " ", "training", 
+    " ", "later", " ", 
+    RowBox[{"on", ".", "can"}], " ", "be", " ", "skipped"}], "*)"}], 
+  RowBox[{"asso", "=", 
+   RowBox[{"Thread", "[", 
+    RowBox[{"trainingSetInput", "\[Rule]", "trainingSetOutput"}], "]"}]}], 
+  ";"}], "\n", 
+ RowBox[{"net", "=", 
+  RowBox[{"NetChain", "[", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"LinearLayer", "[", "]"}], ",", 
+     RowBox[{"ElementwiseLayer", "[", "\"\<Sigmoid\>\"", "]"}]}], "}"}], 
+   "]"}]}], "\n", 
+ RowBox[{"trained", "=", 
+  RowBox[{"NetTrain", "[", 
+   RowBox[{"net", ",", "asso", ",", 
+    RowBox[{"MaxTrainingRounds", "\[Rule]", "10000"}], ",", 
+    RowBox[{"LossFunction", "\[Rule]", 
+     RowBox[{"MeanSquaredLossLayer", "[", "]"}]}], ",", 
+    RowBox[{"Method", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{"\"\<SGD\>\"", ",", 
+       RowBox[{"\"\<LearningRate\>\"", "\[Rule]", "0.5"}]}], "}"}]}], ",", 
+    RowBox[{"BatchSize", "\[Rule]", "n"}]}], "]"}]}], "\n", 
+ RowBox[{"trained", "[", 
+  RowBox[{"{", 
+   RowBox[{"0", ",", "1", ",", "0"}], "}"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.7414575148531675`*^9, 
+  3.74145752604317*^9}},ExpressionUUID->"d4f60e01-d41f-475c-80b2-\
+625596c4d4a9"]
+},
+WindowSize->{775, 513},
+WindowMargins->{{244, Automatic}, {Automatic, 54}},
+FrontEndVersion->"11.3 for Microsoft Windows (64-bit) (March 7, 2018)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[561, 20, 1893, 52, 181, "Input",ExpressionUUID->"d4f60e01-d41f-475c-80b2-625596c4d4a9"]
+}
+]
+*)
+
+(* End of internal cache information *)
+
