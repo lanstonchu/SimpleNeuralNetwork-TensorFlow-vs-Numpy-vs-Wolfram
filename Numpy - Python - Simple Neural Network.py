@@ -1,3 +1,4 @@
+
 import numpy as np
 from numpy import exp, array, random, dot
 training_set_inputs = array([[0, 1, 2], [0, 0, 2], [1, 1, 1], [1, 0, 1]])
@@ -25,5 +26,3 @@ for iteration in range(10000):
     B -= LearnRate*d_B
         
 print(1 / (1 + exp(-(dot(array([0, 1, 0]), W)+B))))
-
-
