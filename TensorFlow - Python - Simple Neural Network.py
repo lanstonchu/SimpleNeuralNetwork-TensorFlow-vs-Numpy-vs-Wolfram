@@ -22,8 +22,6 @@ train_step = tf.train.GradientDescentOptimizer(learning_rate).minimize(mean_squa
 sess = tf.Session()
 init=tf.global_variables_initializer()
 sess.run(init)
-# or use this instead (for reading variables and loading initial value into the session):-
-# init.run(session=sess)
 
 # start training
 for i in range(10000):
