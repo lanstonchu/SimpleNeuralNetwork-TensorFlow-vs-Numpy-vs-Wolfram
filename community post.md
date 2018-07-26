@@ -1,8 +1,8 @@
-![feature image - small 1][1]
+![feature image - small 2][1]
 
 Source Code: [Github Repositories][2]
 
-Coding simple cases on complicated frameworks often offers important insights on the prototyping abilities of our tools. In this post, I will try to code a simple neural network problem on three different programming languages/libraries, namely TensorFlow (Python)<sup>1</sup>, Numpy (Python)<sup>2</sup> and Wolfram Language.
+Coding simple cases on complicated frameworks often offers important insights on the prototyping abilities of our tools. In this post, I will try to code a simple neural network problem on three different programming languages/libraries, namely Wolfram Language, TensorFlow (Python)<sup>1</sup>, Numpy (Python)<sup>2</sup>.
 
 Let's take a simple hypothetical problem in the life insurance industry as an example. An actuary would study the historical claim patterns of insurance policies and would do valuation work by making predictions of future claims.
 
@@ -25,7 +25,7 @@ Let's see how the codes of the three programming languages/libraries look like:
 Summary
 -----------------
 
-![table 2 - small][6]
+![post table 2 - small 2][6]
 
 As we can see, Numpy has the shortest run-time. It is still within expectation as Numpy is a lower-level “to-the-metal” language/library, while TensorFlow and Wolfram Language are) much more “to-the-human”. Although run-time differences seem huge, we should not forget that this toy example is simple (i.e. with one linear layer and one sigmoid layer only), which means many high-level objects of TensorFlow and Wolfram Language designed for neural network have not been fully utilized.
 
@@ -34,6 +34,18 @@ Numpy is also using fewer lines of codes than TensorFlow. But again, we need to 
 It is worth to point out that Wolfram Language uses only seven lines, which indicates that it has robust prototyping abilities in neural network. In fact, Wolfram Language is designed to perform abstract computation, such that many concepts in the neural network can be categorized as a single object, which is also reflected in the above comparison table. In this particular example, in fact, we can even further reduce the lines of code to four4, each refers to the concept of 1. importing training data, 2. constructing network, 3. training network and 4. making predictions.
 
 Below are the codes being used:-
+
+Wolfram Language
+-----------------
+
+    trainingSetInput = {{0, 1, 2}, {0, 0, 2}, {1, 1, 1}, {1, 0, 1}};
+    trainingSetOutput = {1, 0, 1, 0};
+    n = Length@trainingSetInput;
+    asso = Thread[trainingSetInput -> trainingSetOutput];
+    net = NetChain[{LinearLayer[], ElementwiseLayer["Sigmoid"]}];
+     trained = NetTrain[net, asso, MaxTrainingRounds -> 10000, LossFunction -> MeanSquaredLossLayer[], Method -> {"SGD", "LearningRate" -> 0.5}, BatchSize -> n];
+
+     trained[{0, 1, 0}]
 
 TensorFlow (Python)
 -----------------
@@ -86,34 +98,22 @@ Numpy (Python)
     B = random.random((1, 1))
 
     for iteration in range(10000):
-        # Sigmoid function, P. 40
+        # Sigmoid function
         yHat = 1 / (1 + exp(-(dot(training_set_inputs, W)+B)))
-        # gradient of mean square loss: grad0 = (yHat-training_set_outputs) (P. 79)
-        # gradient of Sigmoid: grad = grad0 * yHat * (1 - yHat) (P. 131);
+        # gradient of mean square loss: grad0 = (yHat-training_set_outputs)
+        # gradient of Sigmoid: grad = grad0 * yHat * (1 - yHat);
         # full batch gradient descent
         grad=(yHat-training_set_outputs) * yHat * (1 - yHat)
-        # gradient of linear layer (P. 135)
+        # gradient of linear layer
         d_W=dot(training_set_inputs.T, grad)
-        # just sum up grad to form d_B (P. 137)
+        # just sum up grad to form d_B
         d_B=np.sum(grad,axis=0)
         LearnRate=0.5
-        # gradient descent method (P. 95)
+        # gradient descent method
         W -= LearnRate*d_W
         B -= LearnRate*d_B
 
     print(1 / (1 + exp(-(dot(array([0, 1, 0]), W)+B))))
-
-Wolfram Language
------------------
-
-    trainingSetInput = {{0, 1, 2}, {0, 0, 2}, {1, 1, 1}, {1, 0, 1}};
-    trainingSetOutput = {1, 0, 1, 0};
-    n = Length@trainingSetInput;
-    asso = Thread[trainingSetInput -> trainingSetOutput];
-    net = NetChain[{LinearLayer[], ElementwiseLayer["Sigmoid"]}];
-     trained = NetTrain[net, asso, MaxTrainingRounds -> 10000, LossFunction -> MeanSquaredLossLayer[], Method -> {"SGD", "LearningRate" -> 0.5}, BatchSize -> n];
-
-     trained[{0, 1, 0}]
 
 Footnotes
 -----------------
@@ -123,9 +123,10 @@ Footnotes
 3. There are some discrepancies between the network used in the reference article and that in this post. For example, the affine layer in the referenced neural network does not have a bias term for the sake of simplicity, while we do. The referenced neural network codes the learning process in the format of adding the minus gradient instead of lessing the gradient. But the basic ideas are the same, and in fact, this article is inspired by that article.
 4. By putting all numerical data in `asso` without defining `trainingSetInput` and `trainingSetOutput`, and putting `n` in `NetTrain`.
 
-  [1]: http://community.wolfram.com//c/portal/getImageAttachment?filename=3Logo-small1.png&userId=1353389
+
+  [1]: http://community.wolfram.com//c/portal/getImageAttachment?filename=3Logo-small2.png&userId=1353389
   [2]: https://github.com/lanstonchu/SimpleNeuralNetwork-TensorFlow-vs-Numpy-vs-Wolfram
   [3]: http://community.wolfram.com//c/portal/getImageAttachment?filename=posttable1-small.png&userId=1353389
   [4]: http://community.wolfram.com//c/portal/getImageAttachment?filename=Network-small.png&userId=1353389
   [5]: https://medium.com/technology-invention-and-more/how-to-build-a-simple-neural-network-in-9-lines-of-python-code-cc8f23647ca1
-  [6]: http://community.wolfram.com//c/portal/getImageAttachment?filename=posttable2-small.png&userId=1353389
+  [6]: http://community.wolfram.com//c/portal/getImageAttachment?filename=posttable2-small2.png&userId=1353389
