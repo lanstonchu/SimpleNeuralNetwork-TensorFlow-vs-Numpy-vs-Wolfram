@@ -1,4 +1,4 @@
-![feature image - small 2][1]
+![feature image - small 3][1]
 
 Source Code: [Github Repositories][2]
 
@@ -124,7 +124,7 @@ Footnotes
 4. By putting all numerical data in `asso` without defining `trainingSetInput` and `trainingSetOutput`, and putting `n` in `NetTrain`.
 
 
-  [1]: http://community.wolfram.com//c/portal/getImageAttachment?filename=3Logo-small2.png&userId=1353389
+  [1]: http://community.wolfram.com//c/portal/getImageAttachment?filename=3Logo-small3.png&userId=1353389
   [2]: https://github.com/lanstonchu/SimpleNeuralNetwork-TensorFlow-vs-Numpy-vs-Wolfram
   [3]: http://community.wolfram.com//c/portal/getImageAttachment?filename=posttable1-small.png&userId=1353389
   [4]: http://community.wolfram.com//c/portal/getImageAttachment?filename=Network-small.png&userId=1353389
