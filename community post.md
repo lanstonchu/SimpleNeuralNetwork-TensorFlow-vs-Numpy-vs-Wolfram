@@ -11,7 +11,7 @@ In this toy example, let’s look at a pool of insured persons of the same age (
 The problem
 -----------------
 
-![table 1 - small][3]
+![table 1 - small 2][3]
 
 We would construct a simple neural network with a linear layer and a sigmoid layer, and then train the network by using full batch gradient descent method (with mean-square-error $E = \frac{1}{2} \sum_{k} (y_k - t_k)^{2}$ as the loss function and a learning rate of $\lambda = 0.5$). We would go through $10,000$ epochs for the training. After the network is trained, we would make prediction for Insured person E based on the trained network.
 
@@ -127,7 +127,7 @@ Footnotes
 
   [1]: http://community.wolfram.com//c/portal/getImageAttachment?filename=3Logo-small3.png&userId=1353389
   [2]: https://github.com/lanstonchu/SimpleNeuralNetwork-TensorFlow-vs-Numpy-vs-Wolfram
-  [3]: http://community.wolfram.com//c/portal/getImageAttachment?filename=posttable1-small.png&userId=1353389
+  [3]: http://community.wolfram.com//c/portal/getImageAttachment?filename=posttable1-small2.png&userId=1353389
   [4]: http://community.wolfram.com//c/portal/getImageAttachment?filename=Network-small.png&userId=1353389
   [5]: https://medium.com/technology-invention-and-more/how-to-build-a-simple-neural-network-in-9-lines-of-python-code-cc8f23647ca1
   [6]: http://community.wolfram.com//c/portal/getImageAttachment?filename=posttable2-small2.png&userId=1353389
