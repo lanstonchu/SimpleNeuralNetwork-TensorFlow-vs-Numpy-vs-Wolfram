@@ -43,9 +43,9 @@ Wolfram Language
     n = Length@trainingSetInput;
     asso = Thread[trainingSetInput -> trainingSetOutput];
     net = NetChain[{LinearLayer[], ElementwiseLayer["Sigmoid"]}];
-     trained = NetTrain[net, asso, MaxTrainingRounds -> 10000, LossFunction -> MeanSquaredLossLayer[], Method -> {"SGD", "LearningRate" -> 0.5}, BatchSize -> n];
+    trained = NetTrain[net, asso, MaxTrainingRounds -> 10000, LossFunction -> MeanSquaredLossLayer[], Method -> {"SGD", "LearningRate" -> 0.5}, BatchSize -> n];
 
-     trained[{0, 1, 0}]
+    trained[{0, 1, 0}]
 
 TensorFlow (Python)
 -----------------
