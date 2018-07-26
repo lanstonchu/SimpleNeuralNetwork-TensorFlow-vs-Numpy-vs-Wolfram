@@ -31,7 +31,7 @@ As we can see, Numpy has the shortest run-time. It is still within expectation a
 
 Numpy is also using fewer lines of codes than TensorFlow. But again, we need to note the simplicity of layering in this case, which involves basic forward/backward propagations, allowing Numpy to be less “wordy” than TensorFlow. If the structure of the neural network becomes more complicated, the difficulty and complicity of coding in Numpy would increase much more significantly than TensorFlow.
 
-It is worth to point out that Wolfram Language uses only seven lines, which indicates that it has robust prototyping abilities in neural network. In fact, Wolfram Language is designed to perform abstract computation, such that many concepts in the neural network can be categorized as a single object, which is also reflected in the above comparison table. In this particular example, in fact, we can even further reduce the lines of code to four4, each refers to the concept of 1. importing training data, 2. constructing network, 3. training network and 4. making predictions.
+It is worth to point out that Wolfram Language uses only seven lines, which indicates that it has robust prototyping abilities in neural network. In fact, Wolfram Language is designed to perform abstract computation, such that many concepts in the neural network can be categorized as a single object, which is also reflected in the above comparison table. In this particular example, in fact, we can even further reduce the lines of code to four<sup>4</sup>, each refers to the concept of 1. importing training data, 2. constructing network, 3. training network and 4. making predictions.
 
 Below are the codes being used:-
 
