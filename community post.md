@@ -16,7 +16,8 @@ The problem
 We would construct a simple neural network with a linear layer and a sigmoid layer, and then train the network by using full batch gradient descent method (with mean-square-error $E = \frac{1}{2} \sum_{k} (y_k - t_k)^{2}$ as the loss function and a learning rate of $\lambda = 0.5$). We would go through $10,000$ epochs for the training. After the network is trained, we would make prediction for Insured person E based on the trained network.
 
 ![network - small][4]
-Image 1: A simple neural network of two layers:  a linear layer and a sigmoid layer.
+
+**Image 1: A simple neural network of two layers:  a linear layer and a sigmoid layer.**
 
 We would focus on the coding style/ prototyping abilities of the programming languages/ libraries, instead of the theoretical background. For the explanation of the theoretical background for the forward/backward propagation of linear layer and sigmoid layer, please refer to [this article][5]<sup>3</sup>.
 
@@ -27,7 +28,7 @@ Summary
 
 ![post table 2 - small 2][6]
 
-As we can see, Numpy has the shortest run-time. It is still within expectation as Numpy is a lower-level “to-the-metal” language/library, while TensorFlow and Wolfram Language are) much more “to-the-human”. Although run-time differences seem huge, we should not forget that this toy example is simple (i.e. with one linear layer and one sigmoid layer only), which means many high-level objects of TensorFlow and Wolfram Language designed for neural network have not been fully utilized.
+As we can see, Numpy has the shortest run-time. It is still within expectation as Numpy is a lower-level “to-the-metal” language/library, while TensorFlow and Wolfram Language are) much more “to-the-human”. Although run-time differences seem huge, we should not forget that this toy example is simple (i.e. with *one* linear layer and *one* sigmoid layer only), which means many high-level objects of TensorFlow and Wolfram Language designed for neural network have not been fully utilized.
 
 Numpy is also using fewer lines of codes than TensorFlow. But again, we need to note the simplicity of layering in this case, which involves basic forward/backward propagations, allowing Numpy to be less “wordy” than TensorFlow. If the structure of the neural network becomes more complicated, the difficulty and complicity of coding in Numpy would increase much more significantly than TensorFlow.
 
