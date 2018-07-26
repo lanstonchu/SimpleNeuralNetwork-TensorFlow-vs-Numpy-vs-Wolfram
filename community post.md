@@ -2,7 +2,7 @@
 
 Source Code: [Github Repositories][2]
 
-Coding simple cases on complicated frameworks often offers important insights on the prototyping abilities of our tools. In this post, I will try to code a simple neural network problem on three different programming languages/libraries, namely Wolfram Language, TensorFlow (Python)<sup>1</sup>, Numpy (Python)<sup>2</sup>.
+Coding simple cases on complicated frameworks often offers important insights on the prototyping abilities of our tools. In this post, I will try to code a simple neural network problem on three different programming languages/libraries, namely Wolfram Language, TensorFlow (Python)<sup>1</sup> and Numpy (Python)<sup>2</sup>.
 
 Let's take a simple hypothetical problem in the life insurance industry as an example. An actuary would study the historical claim patterns of insurance policies and would do valuation work by making predictions of future claims.
 
